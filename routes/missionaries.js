@@ -6,7 +6,7 @@ var Missionary = require('../models/Missionary');
 
 router.get('/get-missionaries', async function(req, res, next) {
     try {
-        const missionaries = await Missionary.find();
+        const missionaries = await Missionary.find({});
         res.status(200).json({
             data : { missionaries }
         });
