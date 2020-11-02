@@ -6,10 +6,8 @@ var Missionary = require('../models/Missionary');
 
 router.get('/get-missionaries', async function(req, res, next) {
     try {
-        const missionaries = await Missionary.find({});
-        res.status(200).json({
-            data : { missionaries }
-        });
+        const missionaries = await Missionary.find();
+        res.status(200).json(missionaries);
     } catch (err) {
         res.status(404),json({
             status: 'fail',
