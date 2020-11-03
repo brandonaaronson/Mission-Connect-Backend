@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 var cors = require('cors');
 var bodyParser = require('body-parser');
 
@@ -14,6 +15,9 @@ const db = require('./config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => console.log('MongoDB connected...'))
 .catch(err => console.log(err));
+
+//increment connection
+// const AutoIncrement = AutoIncrementFactory(connection);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
