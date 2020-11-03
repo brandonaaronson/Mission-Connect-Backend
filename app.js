@@ -16,9 +16,6 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => console.log('MongoDB connected...'))
 .catch(err => console.log(err));
 
-//increment connection
-// const AutoIncrement = AutoIncrementFactory(connection);
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var missionariesRouter = require('./routes/missionaries');
