@@ -16,15 +16,15 @@ router.get('/get-missionaries', async function(req, res, next) {
     }
 });
 
-router.get('/search-results', async function(req, res, next) {
+router.get('/search-missionaries', async function(req, res, next) {
     try {
       const missionary = req.query;
       console.log(missionary);
       const regex = new RegExp(missionary.name, 'i')
-      const missionaries = await Missionary.find({$or: [{name: {$regex: regex}}, {continent: regex.continent}, {country: regex.country}]});
+      const missionaries = await Missionary.find({$or: [{name: {$regex: regex}}, {continent: missionary.continent}, {country: missionary.country}]});
       res.status(200).json(missionaries);
   } catch (err) {
-      res.status(404),json({
+      res.status(404),json({ 
         status: 'fail',
         message: err
     });
