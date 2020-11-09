@@ -9,7 +9,8 @@
      name: String,
      continent: String,
      country: String,
-     bio: String
+     bio: String,
+     email: String
  }, { _id: false});
 
  MissionarySchema.plugin(AutoIncrement)

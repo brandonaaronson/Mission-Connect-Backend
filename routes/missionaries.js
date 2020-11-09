@@ -54,7 +54,6 @@ router.get('/:id', async function(req, res, next) {
     try {
         let id = req.params.id;
         const missionary = await Missionary.findById(id);
-        console.log(missionary);
         res.status(200).json({ missionary });
     } catch (err) {
         res.status(404).json({
